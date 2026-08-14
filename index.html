@@ -69,9 +69,10 @@
     background: var(--card-medium);
     border: 1.5px solid var(--gold-ring);
     box-shadow: 0 0 40px rgba(228, 183, 80, 0.12);
+    overflow: hidden;
   }
 
-  .mark svg { width: 38px; height: 38px; }
+  .mark img { width: 62%; height: 62%; object-fit: contain; display: block; }
 
   h1.app-name {
     font-family: 'Spectral', serif;
@@ -211,6 +212,28 @@
     h1.app-name { font-size: 26px; }
     .summary-card, .contact-card { padding: 20px; }
   }
+
+  /* Real desktop treatment — without this, the page just used the same
+     narrow column and small type at every width, which is why it read as
+     a stretched-out mobile layout instead of an actual desktop page. */
+  @media (min-width: 900px) {
+    .wrap { max-width: 860px; padding: 76px 40px 110px; }
+    .mark { width: 108px; height: 108px; margin-bottom: 26px; }
+    h1.app-name { font-size: 36px; }
+    .app-sub { font-size: 15.5px; }
+    .updated { font-size: 13px; padding: 6px 16px; }
+    section h2 { font-size: 23px; padding-bottom: 12px; margin-bottom: 16px; }
+    section h3 { font-size: 17.5px; margin: 22px 0 10px; }
+    p, li { font-size: 16px; line-height: 1.85; }
+    .summary-card, .contact-card { padding: 30px 36px; }
+    .summary-card h2 { font-size: 19.5px; }
+    .summary-card li { font-size: 15.5px; }
+    .contact-email { font-size: 19px; }
+  }
+
+  @media (min-width: 1300px) {
+    .wrap { max-width: 940px; }
+  }
 </style>
 </head>
 <body>
@@ -218,9 +241,7 @@
 
   <header class="hero">
     <div class="mark">
-      <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <path d="M12 2L14.2 9.8L22 12L14.2 14.2L12 22L9.8 14.2L2 12L9.8 9.8L12 2Z" fill="#E4B750"/>
-      </svg>
+      <img src="logo.png" alt="Islam Companion logo" />
     </div>
     <h1 class="app-name">Islam Companion</h1>
     <p class="app-sub">Privacy Policy</p>
